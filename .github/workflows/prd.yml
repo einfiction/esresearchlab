@@ -39,11 +39,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          ls -lA
           mkdir -p ~/.ssh/
           echo "${{ env.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           echo "----------"
           ls -l /home/runner/.ssh/id_rsa
           echo "----------"
+          rm -rf ${{ env.SYNC_DEL_FILES }}
           rsync -avz --delete -e "ssh -p ${{ env.SYNC_SSH_PORT }} -o StrictHostKeyChecking=no" ${{ env.SYNC_LCL_DIR }} ${{ env.SYNC_SSH_USER }}@${{ env.SYNC_SSH_HOST }}:${{ env.SYNC_REM_DIR }}
