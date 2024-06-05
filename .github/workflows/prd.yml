@@ -1,0 +1,49 @@
+name: PRD Deploy
+
+env:
+  ENV: prd
+  PROJECT: ocg
+  APPLICATION: esresearchlab
+
+  SHARED_REPO_NAME: einfiction/devops-shared-library
+  SHARED_REPO_NAME_SSH: git@github.com:einfiction/devops-shared-library.git
+  SHARED_REPO_BRANCH: main
+
+  GITHUB_TOKEN: ${{ secrets.READ_GITHUB_TOKEN }}
+
+  SSH_KEY: ${{ secrets.SSH_KEY }}
+
+  SYNC_LCL_DIR: ./
+  SYNC_REM_DIR: /var/www/html/web/esresearchlab.org/public
+  SYNC_DEL_FILES: .git .github README.md LICENSE
+
+  SYNC_SSH_USER: root
+  SYNC_SSH_PORT: 2222
+  SYNC_SSH_HOST: 195.201.104.53
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: 'App/Deploy'
+    runs-on: ubuntu-22.04
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          ls -lA
+          mkdir -p ~/.ssh/
+          echo "${{ env.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "----------"
+          ls -l /home/runner/.ssh/id_rsa
+          echo "----------"
+          rsync -avz --delete -e "ssh -p ${{ env.SYNC_SSH_PORT }} -o StrictHostKeyChecking=no" ${{ env.SYNC_LCL_DIR }} ${{ env.SYNC_SSH_USER }}@${{ env.SYNC_SSH_HOST }}:${{ env.SYNC_REM_DIR }}
