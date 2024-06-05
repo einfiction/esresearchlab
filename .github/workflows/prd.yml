@@ -14,7 +14,7 @@ env:
   SSH_KEY: ${{ secrets.SSH_KEY }}
 
   SYNC_LCL_DIR: ./
-  SYNC_REM_DIR: /var/www/html/web/esresearchlab.org/public
+  SYNC_REM_DIR: /web/esresearchlab.org/public
   SYNC_DEL_FILES: .git .github README.md LICENSE
 
   SYNC_SSH_USER: root
