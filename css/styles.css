@@ -180,12 +180,13 @@ ul li {
 }
 
 /* Ensuring Consistency for Current Projects Section */
-#research h3, #home h3 {
+#current-projects h3, #home h3 {
   margin-left: 20px;
   margin-right: 20px;
 }
 
-#research .project, #home .project {
+#current-projects .project, #home .project {
   margin-left: 20px;
   margin-right: 20px;
 }
+
