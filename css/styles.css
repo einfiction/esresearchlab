@@ -104,6 +104,7 @@ footer {
   position: absolute;
   width: 100%;
   bottom: 0;
+  margin-top: 40px; /* Adjust the value as needed */
 }
 
 footer p {
@@ -189,4 +190,13 @@ ul li {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+#hierarchical-tree img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
 
