@@ -48,7 +48,7 @@ h1, h2, h3, p, ul {
   }
 
   .page-content {
-    padding-bottom: 60px; /* Ensures there is space between the content and footer */
+    padding-bottom: 80px; /* Ensures there is space between the content and footer */
   }
   
   footer {
