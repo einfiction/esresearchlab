@@ -29,7 +29,7 @@
         <h2>Contact</h2>
         <p>If you have any questions or would like to collaborate with us, please reach out at <a href="mailto:contact@esresearchlab.org">contact@esresearchlab.org</a>.</p>
         <p>Follow us on <a href="https://x.com/esresearchlab" target="_blank">X</a> for updates.</p>
-        <form action="https://formspree.io/f/mdoqrorl" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/mdoqrorl" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
@@ -37,11 +37,37 @@
             <label for="message">Message:</label>
             <textarea id="message" name="message" required></textarea>
             <button type="submit">Send</button>
-        </form>
+          </form>
+          <div id="thank-you-message" style="display:none;">Thanks! The form was submitted successfully.</div>          
     </section>
 </main>
 <div style="height: 50px;"></div>
 </div>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+    
+      var formData = new FormData(this);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', this.action, true);
+      xhr.setRequestHeader('Accept', 'application/json');
+    
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('thank-you-message').style.display = 'block';
+          } else {
+            alert('Oops! There was a problem.');
+          }
+        }
+      };
+    
+      xhr.send(formData);
+    });
+    </script>
+    
 <footer>
     <p>&copy; 2024 Eindorff & Synthoris Research Lab. All rights reserved.</p>
     <p>Follow us on <a href="https://x.com/esresearchlab" target="_blank">X</a></p>
