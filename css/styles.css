@@ -16,6 +16,11 @@ h1, h2, h3, p, ul {
   margin-right: 20px;
 }
 
+/* Page content padding */
+.page-content {
+  padding-bottom: 60px; /* Ensures there is space between the content and footer */
+}
+
 @media only screen and (max-width: 600px) {
   body, h1, h2, h3, p, ul {
     margin-left: 10px;
@@ -45,10 +50,6 @@ h1, h2, h3, p, ul {
 
   .content {
     margin-bottom: 20px; /* Ensures spacing at the bottom */
-  }
-
-  .page-content {
-    padding-bottom: 80px; /* Ensures there is space between the content and footer */
   }
   
   footer {
