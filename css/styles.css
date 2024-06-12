@@ -28,7 +28,7 @@ h1, h2, h3, p, ul {
   }
 
   .page-content {
-    padding-bottom: 40px; /* Increase this value to add more space */
+    padding-bottom: 80px; /* Increase this value to add more space */
 }
 footer {
   margin-top: 20px; /* Adjust the value as needed */
