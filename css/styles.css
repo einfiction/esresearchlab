@@ -213,5 +213,28 @@ ul li {
   text-align: center;
 }
 
+/* Ensuring links align correctly within the container */
+.research-highlight a {
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333;
+}
 
+.research-highlight a:hover {
+  text-decoration: underline;
+}
+
+.research-paper a {
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.research-paper a:hover {
+  text-decoration: underline;
+}
 
