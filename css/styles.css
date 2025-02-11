@@ -21,7 +21,7 @@ h1, h2, h3, p, ul {
 }
 
 .page-content section {
-  scroll-margin-top: 40px; /* Adjust based on header height */
+  scroll-margin-top: 12px; /* Adjust based on header height */
   border-bottom: 2px solid #1a1a1a;
   padding: 2rem 0;
   margin: 2rem 0;
@@ -64,9 +64,6 @@ blockquote {
     margin-right: 10px;
   }
 
-  .page-content {
-    padding-bottom: 80px; /* Increase this value to add more space */
-}
 footer {
   margin-top: 20px; /* Adjust the value as needed */
 }
