@@ -77,6 +77,23 @@ blockquote {
   background: #f8f9fa;
 }
 
+.music-player {
+  max-width: 600px; /* Adjust width */
+  margin: 20px auto;
+  font-style: italic;
+}
+
+audio {
+  filter: sepia(50%) saturate(70%) brightness(0.9); /* Warm, minimal tone */
+  border-radius: 0;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+audio:hover {
+  opacity: 1;
+}
+
 /* Page content padding */
 .page-content {
   padding-bottom: 40px; /* Ensures there is space between the content and footer */
